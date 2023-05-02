@@ -16,15 +16,28 @@ function HashTable() {
     return suma % this.numBuckets;
   }
   HashTable.prototype.set = function(key, value){
-    let index = this.hash(key);
-    this.buckets[index] = value;
+      if(typeof key != 'string'){
+          throw new TypeError('Keys must be strings')
+        }
+        let index = this.hash(key);
+        //si colisiona hacemos que las posiciones sean objetos
+        if(!this.buckets[index]){
+            this.buckets[index] = {};
+        }
+    this.buckets[index][key] = value;
   }
+
   HashTable.prototype.get = function(key){
     let index = this.hash(key);
-    return this.buckets[index];
+    return this.buckets[index][key];
 
   }
-  HashTable.prototype.hasKey = function(){
+  HashTable.prototype.hasKey = function(key){
+    let index = this.hash(key);
+    if(this.buckets[index][key]){
+        return true;
+    }
+    return false;
   }
   
   let nTable = new HashTable();
