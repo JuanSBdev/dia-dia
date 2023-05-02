@@ -7,10 +7,6 @@
 // //     value: 33,
 // //     next: null
 // // }
-// // let node3 = {
-// //     value: 33,
-// //     next: null
-// // }
 
 // // console.log(nodo)
 
@@ -151,6 +147,10 @@
 
 // Ejemplo: supongamos que quiero guardar {instructora: 'Ani'} en la tabla. Primero puedo chequear, con hasKey, si ya hay algo en la tabla con el nombre 'instructora'; luego, invocando set('instructora', 'Ani'), se almacenará el par clave-valor en un bucket específico (determinado al hashear la clave)
 // */
+
+
+
+
 function HashTable() {
   this.numBuckets = 35;
   this.buckets = [];
@@ -159,13 +159,25 @@ HashTable.prototype.hash = function (value){
   let valor = 0;
   for (let i = 0; i < value.length; i++) {
     valor = valor + value.charCodeAt(i);
-  }
+  } 
   return valor % this.numBuckets;
 }
 let as = new HashTable();
 as.hash('asd');
 console.log(as)
 console.log(as.keys(buckets))
+
+
+
+
+
+
+
+
+
+
+
+
 
     // - set: recibe el conjunto clave valor (como dos parámetros distintos), hashea la clave invocando al método hash, 
     //y almacena todo el conjunto en el bucket correcto.
