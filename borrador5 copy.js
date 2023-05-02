@@ -169,45 +169,45 @@ console.log(as.keys(buckets))
 
     // - set: recibe el conjunto clave valor (como dos parámetros distintos), hashea la clave invocando al método hash, 
     //y almacena todo el conjunto en el bucket correcto.
-    HashTable.prototype.set = function(key, value){
-      if(this.keys(this.buckets))
-      return this.key.hash(key);
+    // HashTable.prototype.set = function(key, value){
+    //   if(this.keys(this.buckets))
+    //   return this.key.hash(key);
 
-    }
-    HashTable.prototype.set = function(key, value) {
-      const index = this.hash(key);
-      const bucket = this.buckets[index] || [];
+    // }
+    // HashTable.prototype.set = function(key, value) {
+    //   const index = this.hash(key);
+    //   const bucket = this.buckets[index] || [];
     
-      // Buscamos si ya existe un elemento en el bucket con la misma clave
-      let found = false;
-      for (let i = 0; i < bucket.length; i++) {
-        const [k, v] = bucket[i];
-        if (k === key) {
-          bucket[i][1] = value;
-          found = true;
-          break;
-        }
-      }
+    //   // Buscamos si ya existe un elemento en el bucket con la misma clave
+    //   let found = false;
+    //   for (let i = 0; i < bucket.length; i++) {
+    //     const [k, v] = bucket[i];
+    //     if (k === key) {
+    //       bucket[i][1] = value;
+    //       found = true;
+    //       break;
+    //     }
+    //   }
     
-      // Si no encontramos un elemento con la misma clave, lo agregamos al bucket
-      if (!found) {
-        bucket.push([key, value]);
-      }
+    //   // Si no encontramos un elemento con la misma clave, lo agregamos al bucket
+    //   if (!found) {
+    //     bucket.push([key, value]);
+    //   }
     
-      this.buckets[index] = bucket;
-    };
-    HashTable.prototype.get = function(key) {
-      const index = this.hash(key);
-      const bucket = this.buckets[index] || [];
+    //   this.buckets[index] = bucket;
+    // };
+    // HashTable.prototype.get = function(key) {
+    //   const index = this.hash(key);
+    //   const bucket = this.buckets[index] || [];
     
-      // Buscamos el elemento con la clave que recibimos como parámetro
-      for (let i = 0; i < bucket.length; i++) {
-        const [k, v] = bucket[i];
-        if (k === key) {
-          return v;
-        }
-      }
+    //   // Buscamos el elemento con la clave que recibimos como parámetro
+    //   for (let i = 0; i < bucket.length; i++) {
+    //     const [k, v] = bucket[i];
+    //     if (k === key) {
+    //       return v;
+    //     }
+    //   }
     
-      // Si no encontramos ningún elemento con la clave, retornamos undefined
-      return undefined;
-    };
+    //   // Si no encontramos ningún elemento con la clave, retornamos undefined
+    //   return undefined;
+    // };
