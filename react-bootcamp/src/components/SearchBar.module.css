@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 2%;
+}
+.input{
+    border-radius: 2rem;
+    font-size: 1rem;
+    padding: 1%;
+}
+.button{
+    width: 4%;
+    border-radius: 2rem;
+    font-size: 2rem;
+    margin-left: 1%;
+    background-color: rgb(103, 231, 88);
+}
