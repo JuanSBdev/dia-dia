@@ -7,7 +7,7 @@ import characters, { Rick } from '../data';
 function App() {
    return (
       <div className='App'>
-         <SearchBar onSearch={(characterID) => console.log(characterID)} />
+         <SearchBar  onSearch={(characterID) => console.log(characterID)} />
          <Cards characters={characters} />
       </div>
    );
