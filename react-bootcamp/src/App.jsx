@@ -4,6 +4,9 @@ import Cards from './components/Cards.jsx';
 import Nav from './components/Nav';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
+import { Route, Routes} from 'react-router-dom'
+import About from './components/About';
+import Detail from './components/Detail';
 function App() {
    const [characters, setCharacters] = useState([])
    function onSearch(id) {
@@ -26,7 +29,21 @@ function App() {
    return (
       <div className='App'>
          <Nav  onSearch={onSearch} />
-         <Cards characters={characters} onClose={ onClose } />
+         <Routes>
+            <Route path='/'
+                  element={
+                     <Cards characters={characters}
+                           onClose={ onClose } />
+                           } 
+                     >
+          </Route>
+         <Route  path='/abt'
+                 element={ <About/> }>
+         </Route>
+         <Route
+                path='/detail/:id' element={ <Detail/> }  >
+         </Route>
+      </Routes>
       </div>
    );
 }
