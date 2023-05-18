@@ -3,9 +3,9 @@ import styles from './SearchBar.module.css'
 export default function SearchBar(props) {
    const [id, setId] = useState('')
    const handleChange = (event)=>{
-      console.log(id)
       let { value } = event.target;
       setId( value);
+      console.log(value)
    }
    return (
       <div className={styles.container} >
