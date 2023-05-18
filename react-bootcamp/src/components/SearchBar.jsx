@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import styles from './SearchBar.module.css'
-import {NavLink, Link } from 'react-router-dom'
+import {NavLink, Link, useLocation  } from 'react-router-dom'
 
 export default function SearchBar(props) {
-   const [id, setId] = useState('')
+   const { pathname } = useLocation();
+   const isAbout = pathname === '/abt';
+   const isHome = pathname === '/';
+   const [id, setId] = useState('');
    const handleChange = (event)=>{
       let { value } = event.target;
       setId( value);
@@ -11,12 +14,16 @@ export default function SearchBar(props) {
    }
    return (
       <div className={styles.container} >
-         <NavLink to={'/abt'} >
-            <button>About</button>
-         </NavLink>
-         <NavLink to={'/'} >
+         { !isAbout &&
+            (<NavLink to={'/abt'} >
+               <button>About</button>
+            </NavLink>)  
+         }
+         { !isHome && 
+            (<NavLink to={'/'} >
             <button>Home</button>
-         </NavLink>
+            </NavLink>)
+         }
          
          <input className={styles.input}
           placeholder='Ingresar valor..'
