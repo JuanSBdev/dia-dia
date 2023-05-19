@@ -8,9 +8,9 @@ export default function Card(props) {
   
    return (
       <div className={styles.divCarta}>
-         <NavLink to={`/detail/${id}`}>
          
          <button className={styles.button} onClick={handleOnClose}  >X</button>
+         <NavLink to={`/detail/${id}`}>
          <h2 className={styles.nombre}>{props.name}</h2>
          <img className={styles.characterImg} src={props.image} alt='RickImage' />
          <h2 >&#x2764; {props.status} </h2>

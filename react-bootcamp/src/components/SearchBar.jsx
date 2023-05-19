@@ -21,7 +21,7 @@ export default function SearchBar(props) {
          }
          { !isHome && 
             (<NavLink to={'/'} >
-            <button>Home</button>
+            <button className={styles.button} >Home</button>
             </NavLink>)
          }
          
