@@ -4,7 +4,7 @@ import Cards from './components/Cards.jsx';
 import Nav from './components/Nav';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
-import { Route, Routes, useNavigate} from 'react-router-dom'
+import { Route, Routes,useLocation ,useNavigate} from 'react-router-dom'
 import About from './components/About';
 import Detail from './components/Detail';
 import Form from './components/form/Form';
@@ -15,7 +15,7 @@ function App() {
     const EMAIL = 'ejemplo@gmail.com';
     const PASSWORD = '123';
     const navigate = useNavigate();
-    
+    const location = useLocation();
     function login(userData) {
        if (userData.password === PASSWORD && userData.email === EMAIL) {
           setAccess(true);
@@ -44,28 +44,22 @@ function App() {
       useEffect(()=>{
          console.log(characters)
       }, [characters])
-   return (
-      <div className='App'>
-         <Nav  onSearch={onSearch} />
-         <Routes>
-            <Route exact path='/' element={<Form login={login} />} >
-            </Route>
-            <Route path='/home'
-                  element={
-                     <Cards characters={characters}
-                           onClose={ onClose } />
-                           } 
-                     >
-          </Route>
-         <Route  path='/abt'
-                 element={ <About/> }>
-         </Route>
-         <Route
-                path='/detail/:id' element={ <Detail/> }  >
-         </Route>
-      </Routes>
-      </div>
-   );
+      return (
+         <div className='App'>
+            {location.pathname !== '/' && <Nav onSearch={onSearch} />}
+            <Routes>
+               {location.pathname === '/' ? (
+                  <Route exact path='/' element={<Form login={login} />} />
+               ) : (
+                  <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
+               )}
+               <Route path='/abt' element={<About />} />
+               <Route path='/detail/:id' element={<Detail />} />
+            </Routes>
+         </div>
+      );
+       
+       
 }
 
 export default App;
