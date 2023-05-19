@@ -4,11 +4,29 @@ import Cards from './components/Cards.jsx';
 import Nav from './components/Nav';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
-import { Route, Routes} from 'react-router-dom'
+import { Route, Routes, useNavigate} from 'react-router-dom'
 import About from './components/About';
 import Detail from './components/Detail';
+import Form from './components/form/Form';
 function App() {
    const [characters, setCharacters] = useState([])
+  
+   const [access, setAccess] = useState(false);
+    const EMAIL = 'ejemplo@gmail.com';
+    const PASSWORD = '123';
+    const navigate = useNavigate();
+    
+    function login(userData) {
+       if (userData.password === PASSWORD && userData.email === EMAIL) {
+          setAccess(true);
+          navigate('/home');
+       }
+    }
+
+   useEffect(()=>{
+      !access && navigate('/')
+   },[access]) 
+   
    function onSearch(id) {
       axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
          if (data.name) {
@@ -30,7 +48,9 @@ function App() {
       <div className='App'>
          <Nav  onSearch={onSearch} />
          <Routes>
-            <Route path='/'
+            <Route exact path='/' element={<Form login={login} />} >
+            </Route>
+            <Route path='/home'
                   element={
                      <Cards characters={characters}
                            onClose={ onClose } />
