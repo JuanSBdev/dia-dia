@@ -27,14 +27,14 @@ export default function Form(props) {
   return (
     <div className={styles.container} >
         <form className={styles.form}  onSubmit={handleSubmit}>
-            <h1>BIENVENIDO C-137</h1>
-            <label > E-MAIL </label>
+            <h1>bienvenido C-137</h1>
+            <label > e-mail </label>
             <input type="text" name='email'
                     value={userData.email}
                     onChange={handleChange} />
                     <p className={styles.pError}> {errors.email ? errors.email : null }  </p>
-            <label > PASS</label>
-            <input type="password" name='password' onChange={handleChange} value={userData.pass} />
+            <label > pass</label>
+            <input className={styles.inputPass} type="password" name='password' onChange={handleChange} value={userData.pass} />
             <p className={styles.pError}> {errors.password ? errors.password : null }  </p>
 
             <button type="submit" > acceder </button>
