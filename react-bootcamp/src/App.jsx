@@ -55,6 +55,7 @@ function App() {
                )}
                <Route path='/abt' element={<About />} />
                <Route path='/detail/:id' element={<Detail />} />
+           
             </Routes>
          </div>
       );

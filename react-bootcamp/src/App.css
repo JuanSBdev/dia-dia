@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
 :root{
-  background-color: rgb(35, 155, 77);
-  background-image: url('https://i.pinimg.com/originals/76/b7/0f/76b70f54468e94fbae6f95d6604a7756.png');
-  background-size:20%;
+  font-family: 'Unica One', cursive;
+
+    background-color: rgb(100, 199, 238);
+  background-image: url('https://images7.alphacoders.com/100/1003059.jpg');
+  background-size:18%;
+  background-repeat:repeat;
 }
