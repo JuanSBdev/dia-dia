@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './SearchBar.module.css'
 import {NavLink, Link, useLocation  } from 'react-router-dom'
+import Favorites from './favorites/Favorites';
 
 export default function SearchBar(props) {
    const { pathname } = useLocation();
@@ -17,14 +18,18 @@ export default function SearchBar(props) {
          { !isAbout &&
             (<NavLink to={'/abt'} >
                <button>About</button>
-            </NavLink>)  
+            </NavLink>
+          
+            )  
          }
          { !isHome && 
             (<NavLink to={'/home'} >
             <button className={styles.button} >Home</button>
             </NavLink>)
          }
-         
+         <NavLink to={'/fav'}>
+            <button>asd</button>
+          </NavLink>
          <input className={styles.input}
           placeholder='Ingresar valor..'
            type='search'

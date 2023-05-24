@@ -9,7 +9,7 @@ export default function Cards(props) {
             key={index} id={characters.id}
             name={characters.name}
             status={characters.status}
-            species={characters.spropses}
+            species={characters.species}
             gender={characters.gender}
             origin={characters.origin.name}
             onClose={props.onClose}

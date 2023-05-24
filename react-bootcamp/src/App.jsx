@@ -1,6 +1,5 @@
 import './App.css';
 import Cards from './components/Cards.jsx';
-// import characters, { Rick } from '../data';
 import Nav from './components/Nav';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
@@ -8,6 +7,7 @@ import { Route, Routes,useLocation ,useNavigate} from 'react-router-dom'
 import About from './components/About';
 import Detail from './components/Detail';
 import Form from './components/form/Form';
+import Favorites from './components/favorites/Favorites';
 function App() {
    const [characters, setCharacters] = useState([])
   
@@ -55,7 +55,7 @@ function App() {
                )}
                <Route path='/abt' element={<About />} />
                <Route path='/detail/:id' element={<Detail />} />
-           
+               <Route path='/fav' element={<Favorites/>} />
             </Routes>
          </div>
       );

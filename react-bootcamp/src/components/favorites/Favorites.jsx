@@ -1,30 +1,25 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import Card from '../Card'
- function Favorites({myFavorites}) {
+import React from 'react';
+import Card from '../Card';
+import { useSelector } from 'react-redux';
+
+export default function Favorites() {
+  const myFavorites = useSelector(state => state.myFavorites);
+
   return (
     <div>
-        <h1>Myfavoriteees</h1>
-{
-  myFavorites?.map((characters, index) =>{
-    return(
-      <Card  key={index} id={characters.id}
-      name={characters.name}
-      status={characters.status}
-      species={characters.spropses}
-      gender={characters.gender}
-      origin={characters.origin.name}
-      image={characters.image}
-      />
-    )
-  })
-}
+      <h1>My Favorites</h1>
+      {myFavorites.map((character, index) => (
+        <Card
+          key={index}
+          id={character.id}
+          name={character.name}
+          status={character.status}
+          species={character.species}
+          gender={character.gender}
+          origin={character.origin.name}
+          image={character.image}
+        />
+      ))}
     </div>
-  )
+  );
 }
-const mapStateToProps = (state) => {
-  return {
-    myFavorites: state.myFavorites
-  }
-}
-export default connect(mapStateToProps, null)(Favorites)
