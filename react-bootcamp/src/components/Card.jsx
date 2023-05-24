@@ -3,7 +3,8 @@ import styles from "./Card.module.css";
 import { NavLink } from 'react-router-dom';
 import { addFav, removeFav } from "../redux/actions";
 import { useSelector, useDispatch } from 'react-redux';
-
+let btn_img = 'https://cdn.icon-icons.com/icons2/1760/PNG/512/4105937-fav-favourite-rate-rating-star_113941.png';
+let btn_img2 = 'https://cdn-icons-png.flaticon.com/512/1601/1601243.png';
 export default function Card(props) {
    const { id, onClose } = props;
    const dispatch = useDispatch();
@@ -32,14 +33,22 @@ export default function Card(props) {
   
    return (
       <div className={styles.divCarta}>
+         <div className={styles.btnsCard}>
          {
             isFav ? (
-               <button onClick={handleFavorite}>rojo</button>
+               <button className={styles.buttonFav} onClick={handleFavorite}>
+
+                  <img src={btn_img2} className={styles.btn_img} alt="" />  
+               </button>
             ) : (
-               <button onClick={handleFavorite}>blanco</button>
+               <button className={styles.buttonFav} onClick={handleFavorite}>
+                  <img src={btn_img} className={styles.btn_img} alt="" />  
+                  
+               </button>
             )
          }
          <button className={styles.button} onClick={handleOnClose}>X</button>
+         </div>
          <NavLink to={`/detail/${id}`}>
             <h2 className={styles.nombre}>{props.name}</h2>
             <img className={styles.characterImg} src={props.image} alt='RickImage' />

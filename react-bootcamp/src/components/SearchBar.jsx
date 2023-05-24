@@ -15,6 +15,7 @@ export default function SearchBar(props) {
    }
    return (
       <div className={styles.container} >
+         <div className={styles.containerLeft}>
          { !isAbout &&
             (<NavLink to={'/abt'} >
                <button>About</button>
@@ -24,19 +25,25 @@ export default function SearchBar(props) {
          }
          { !isHome && 
             (<NavLink to={'/home'} >
-            <button className={styles.button} >Home</button>
+            <button>Home</button>
             </NavLink>)
          }
          <NavLink to={'/fav'}>
-            <button>asd</button>
+            <button>Favoritos</button>
           </NavLink>
-         <input className={styles.input}
-          placeholder='Ingresar valor..'
-           type='search'
+          
+         </div>
+          <div className={styles.ContainerRight}>
+            <label > Buscar por ID:</label>
+            <input className={styles.input}
+               placeholder='add numero..'
+            type='search'
             name='search'
             onChange={handleChange}
             />
-         <button className={styles.button} onClick={()=> props.onSearch(id)}>+</button>
+            <button className={styles.button} onClick={()=> props.onSearch(id)}>🔎</button>
+
+          </div>
       </div>
    );
 }
