@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './SearchBar.module.css'
 import {NavLink, Link, useLocation  } from 'react-router-dom'
 import Favorites from './favorites/Favorites';
-
+import { btn_img2, abt_img } from './Card';
 export default function SearchBar(props) {
    const { pathname } = useLocation();
    const isAbout = pathname === '/abt';
@@ -18,7 +18,9 @@ export default function SearchBar(props) {
          <div className={styles.containerLeft}>
          { !isAbout &&
             (<NavLink to={'/abt'} >
-               <button>About</button>
+               <button className={styles.btnAbt} >
+                  <img className={styles.btnAbtImg} src={abt_img} alt="" />
+               </button>
             </NavLink>
           
             )  
@@ -29,7 +31,9 @@ export default function SearchBar(props) {
             </NavLink>)
          }
          <NavLink to={'/fav'}>
-            <button>Favoritos</button>
+            <button className={styles.btnFav} >
+               <img className={styles.imgFav} src={btn_img2} alt="" />
+            </button>
           </NavLink>
           
          </div>

@@ -4,7 +4,9 @@ import { NavLink } from 'react-router-dom';
 import { addFav, removeFav } from "../redux/actions";
 import { useSelector, useDispatch } from 'react-redux';
 let btn_img = 'https://cdn.icon-icons.com/icons2/1760/PNG/512/4105937-fav-favourite-rate-rating-star_113941.png';
-let btn_img2 = 'https://cdn-icons-png.flaticon.com/512/1601/1601243.png';
+export let btn_img2 = 'https://cdn-icons-png.flaticon.com/512/1601/1601243.png';
+export let abt_img = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/About_icon_%28The_Noun_Project%29.svg/2048px-About_icon_%28The_Noun_Project%29.svg.png';
+
 export default function Card(props) {
    const { id, onClose } = props;
    const dispatch = useDispatch();
