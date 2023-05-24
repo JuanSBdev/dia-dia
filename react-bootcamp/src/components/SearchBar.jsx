@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './SearchBar.module.css'
 import {NavLink, Link, useLocation  } from 'react-router-dom'
 import Favorites from './favorites/Favorites';
-import { btn_img2, abt_img } from './Card';
+import { btn_img2, abt_img, btn_imgHome } from './Card';
 export default function SearchBar(props) {
    const { pathname } = useLocation();
    const isAbout = pathname === '/abt';
@@ -16,25 +16,46 @@ export default function SearchBar(props) {
    return (
       <div className={styles.container} >
          <div className={styles.containerLeft}>
+         
+         { !isHome && 
+            
+            (
+            <NavLink to={'/home'} >
+            <button className={styles.btnHome} >
+               <img src={btn_imgHome} alt="" />
+            </button>
+            </NavLink>)
+            
+          
+
+         }
+         { isHome && !isAbout &&
+             <NavLink to={'/fav'}>
+             <button className={styles.btnFav} >
+                <img className={styles.imgFav} src={btn_img2} alt="" />
+             </button>
+           </NavLink>
+         }
          { !isAbout &&
-            (<NavLink to={'/abt'} >
+            (
+            <NavLink to={'/abt'} >
                <button className={styles.btnAbt} >
-                  <img className={styles.btnAbtImg} src={abt_img} alt="" />
+                  <img className={styles.btnAbtImg} src={abt_img} alt="About" />
                </button>
             </NavLink>
-          
+            
+
             )  
+           
          }
-         { !isHome && 
-            (<NavLink to={'/home'} >
-            <button>Home</button>
-            </NavLink>)
+          { isAbout &&
+             <NavLink to={'/fav'}>
+             <button className={styles.btnFav} >
+                <img className={styles.imgFav} src={btn_img2} alt="" />
+             </button>
+           </NavLink>
          }
-         <NavLink to={'/fav'}>
-            <button className={styles.btnFav} >
-               <img className={styles.imgFav} src={btn_img2} alt="" />
-            </button>
-          </NavLink>
+       
           
          </div>
           <div className={styles.ContainerRight}>
