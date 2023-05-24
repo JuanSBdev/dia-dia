@@ -9,7 +9,20 @@ import Detail from './components/Detail';
 import Form from './components/form/Form';
 import Favorites from './components/favorites/Favorites';
 function App() {
-   const [characters, setCharacters] = useState([])
+   const [characters, setCharacters] = useState([
+      {"id":23,"name":"Arcade Alien",
+      "status":"unknown",
+      "species":"Alien",
+      "type":"",
+      "gender":"Male",
+      "origin":{"name":"unknown","url":""},
+      "location":
+      {"name":"Immortality Field Resort",
+      "url":"https://rickandmortyapi.com/api/location/7"},
+      "image":"https://rickandmortyapi.com/api/character/avatar/23.jpeg",
+      "url":"https://rickandmortyapi.com/api/character/23","created":"2017-11-05T08:43:05.095Z"}
+   
+   ])
   
    const [access, setAccess] = useState(false);
     const EMAIL = 'ejemplo@gmail.com';
