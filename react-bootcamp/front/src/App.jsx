@@ -41,7 +41,9 @@ function App() {
    },[access]) 
    
    function onSearch(id) {
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+      fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+      .then(response => response.json())
+      .then(( data ) => {
          if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
          } else {
