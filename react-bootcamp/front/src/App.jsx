@@ -41,16 +41,20 @@ function App() {
    },[access]) 
    
    function onSearch(id) {
-      fetch(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then(response => response.json())
-      .then(( data ) => {
-         if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
-         } else {
+      fetch(`http://localhost:3001/rickandmorty/onsearch/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.name) {
+            setCharacters(oldChars => [...oldChars, data]);
+          } else {
             window.alert('¡No hay personajes con este ID!');
-         }
-      });
-   }
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching character:', error);
+          // Handle the error, e.g., show an error message or retry the request
+        });
+    }
    function onClose(id) {
       setCharacters(
         characters.filter((c) => c.id !== parseInt(id))
