@@ -40,21 +40,35 @@ function App() {
       !access && navigate('/')
    },[access]) 
    
-   function onSearch(id) {
-      fetch(`http://localhost:3001/rickandmorty/onsearch/${id}`)
-        .then(response => response.json())
-        .then(data => {
-          if (data.name) {
-            setCharacters(oldChars => [...oldChars, data]);
-          } else {
-            window.alert('¡No hay personajes con este ID!');
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching character:', error);
-          // Handle the error, e.g., show an error message or retry the request
-        });
+   async function onSearch(id) {
+
+try {
+   const response = await axios(`http://localhost:3001/rickandmorty/onsearch/${id}`)
+   const data =  response.data;
+   if (data.name) {
+      setCharacters(oldChars => [...oldChars, data]);
+    } else {
+      window.alert('¡No hay personajes con este ID!');
     }
+} catch (error) {
+          window.alert('¡No hay personajes con este ID!');
+}
+   }
+
+   //    fetch(`http://localhost:3001/rickandmorty/onsearch/${id}`)
+   //      .then(response => response.json())
+   //      .then(data => {
+   //        if (data.name) {
+   //          setCharacters(oldChars => [...oldChars, data]);
+   //        } else {
+   //          window.alert('¡No hay personajes con este ID!');
+   //        }
+   //      })
+   //      .catch(error => {
+   //        console.error('Error fetching character:', error);
+   //        // Handle the error, e.g., show an error message or retry the request
+   //      });
+   //  }
    function onClose(id) {
       setCharacters(
         characters.filter((c) => c.id !== parseInt(id))
