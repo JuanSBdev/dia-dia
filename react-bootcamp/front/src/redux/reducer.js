@@ -7,7 +7,6 @@ import { ADD_FAV, REMOVE_FAV } from "./action_types";
     const reducer = ( state = initialState, action)=>{
         switch(action.type){
 
-            case ADD_FAV:
                 case 'ADD_FAV':
                         return { ...state, myFavorites: payload, allCharacters: payload };
 
