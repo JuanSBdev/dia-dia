@@ -2,12 +2,12 @@ import './App.css';
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav';
 import { useEffect, useState } from 'react';
-import axios from 'axios'
 import { Route, Routes,useLocation ,useNavigate} from 'react-router-dom'
 import About from './components/About';
 import Detail from './components/Detail';
 import Form from './components/form/Form';
 import Favorites from './components/favorites/Favorites';
+import axios from 'axios';
 function App() {
    const [characters, setCharacters] = useState([
       {"id":23,"name":"Arcade Alien",
@@ -25,16 +25,27 @@ function App() {
    ])
   
    const [access, setAccess] = useState(false);
-    const EMAIL = 'ejemplo@gmail.com';
-    const PASSWORD = '123';
+   //  const EMAIL = 'ejemplo@gmail.com';
+   //  const PASSWORD = '123';
     const navigate = useNavigate();
     const location = useLocation();
+
     function login(userData) {
-       if (userData.password === PASSWORD && userData.email === EMAIL) {
-          setAccess(true);
-          navigate('/home');
-       }
-    }
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
+   }
+    
+   //  function login(userData) {
+   //     if (userData.password === PASSWORD && userData.email === EMAIL) {
+   //        setAccess(true);
+   //        navigate('/home');
+   //     }
+   //  }
 
    useEffect(()=>{
       !access && navigate('/')
