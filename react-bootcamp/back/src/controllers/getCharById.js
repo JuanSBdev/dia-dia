@@ -9,6 +9,7 @@ function getCharById(req, res){
         const data = response.data;
         const character = {
             id: data.id,
+            status: data.status,
             name: data.name,
             image: data.image,
             gender: data.gender,

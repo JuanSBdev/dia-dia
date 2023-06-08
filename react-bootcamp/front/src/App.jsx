@@ -82,7 +82,7 @@ try {
    //  }
    function onClose(id) {
       setCharacters(
-        characters.filter((c) => c.id !== parseInt(id))
+        characters.filter((c) => {c.id !== parseInt(id)})
       );
     }
       useEffect(()=>{
