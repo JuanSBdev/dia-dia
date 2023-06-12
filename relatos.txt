@@ -1,3 +1,4 @@
 Hoy finalizó primer checkpoint del bootcamp. ( APROBADO );
 
 Test JavaScript avanzado, estructura de datos, arboles binarios, algoritmos,recursion.
+Listo para arrancar el m4 y tamos adentro
