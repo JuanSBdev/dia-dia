@@ -2,6 +2,8 @@ import {React , useEffect, useState} from "react";
 import { useParams } from 'react-router-dom'
 import  axios  from "axios";
 
+import styles from './Detail.module.css'
+
 export  default function Detail (props){
     const { id } = useParams();
     const [character, setCharacter] = useState({})
@@ -33,7 +35,7 @@ export  default function Detail (props){
                         <h3>Location: {character.origin.name} </h3>
                         <img  src= { character.image } /> 
                     </div>
-                ) : ( <h2>asd</h2>)
+                ) : ( <h2 className={styles.loading}>Loading...</h2>)
              }
             </div>
              )
