@@ -32,9 +32,10 @@ export  default function Detail (props){
                 (
                     <div className={styles.card} > 
                     <img  src= { character.image } /> 
-                    <div className="">
+                    <div className={styles.info}>
 
-                        <h1> Name: {character.name} </h1>
+                        <h1> {character.name} </h1>
+                        <h2>&#x2764; {character.status}</h2>
                         <h3>gender: {character.gender} </h3>
                         <h3>specie: {character.species} </h3>
                         <h3>Location: {character.origin.name} </h3>

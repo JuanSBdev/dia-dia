@@ -13,6 +13,7 @@
     align-items: center;
 
     width: 100%;
+    margin-top: 5%;
 }
 .card{
     display: flex;
@@ -23,4 +24,7 @@
 .card img{
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
+}
+.info{
+    padding:  2% ;
 }
