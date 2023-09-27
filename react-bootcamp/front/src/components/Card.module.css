@@ -12,6 +12,12 @@ h2{
     padding: 1%;
     margin: 1%;
     background-color: rgb(97, 206, 223);
+    text-decoration: none;
+
+}
+.link{
+    text-decoration: none;
+
 }
 .btnsCard{
     width: 100%;
