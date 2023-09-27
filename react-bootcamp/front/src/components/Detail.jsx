@@ -13,6 +13,7 @@ export  default function Detail (props){
         .then(data => {
           if (data.name) {
             setCharacter(data);
+            console.log(character)
           } else {
             window.alert('No hay personajes con ese ID');
           }
@@ -26,14 +27,18 @@ export  default function Detail (props){
       };
     }, [id]);;
      return(
-            <div> {character.name ? 
+            <div className={styles.wrapper} >
+               {character.name ? 
                 (
-                    <div>
+                    <div className={styles.card} > 
+                    <img  src= { character.image } /> 
+                    <div className="">
+
                         <h1> Name: {character.name} </h1>
                         <h3>gender: {character.gender} </h3>
-                        <h3>specie: {character.specie} </h3>
+                        <h3>specie: {character.species} </h3>
                         <h3>Location: {character.origin.name} </h3>
-                        <img  src= { character.image } /> 
+                    </div>
                     </div>
                 ) : ( <h2 className={styles.loading}>Loading...</h2>)
              }

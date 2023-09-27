@@ -1,8 +1,26 @@
-.laoding{
-    font-size: 2rem;
+.loading{
+    font-size: 4rem;
     width: 100%;
     
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 8%;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+.card{
+    display: flex;
+    background-color: rgba(49, 126, 126, 0.949);
+    margin: 2%;
+    border-radius: 1rem;
+}
+.card img{
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
 }
