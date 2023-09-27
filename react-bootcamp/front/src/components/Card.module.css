@@ -3,14 +3,17 @@ h2{
     margin: 2%;
 }
 .divCarta{
-    width: 20%;
-    border: 1px solid black;
+    width: 18%;
+
     display: flex;
+    box-shadow: 0 0 10px 0;
+
     flex-flow: column nowrap;
     justify-content: space-around;
     border-radius: 1rem;
-    padding: 1%;
-    margin: 1%;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    margin: 2%;
     background-color: rgb(97, 206, 223);
     text-decoration: none;
 
@@ -24,6 +27,9 @@ h2{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    margin-bottom:-16%;
+    margin-top: 0%;
+    z-index: 2;
     
 }
 .button{
@@ -47,7 +53,11 @@ h2{
     width: 90%;
 }
 .characterImg{
-    border-radius: 10rem;
-    border: 2px solid black;
     width: 100%;
+    padding: 0%;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+.textInfo{
+    margin-top: -0%;
 }
